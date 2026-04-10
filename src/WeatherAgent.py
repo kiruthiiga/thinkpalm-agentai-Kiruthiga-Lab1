@@ -34,22 +34,25 @@ class WeatherAgent:
         print("\n" + "="*60)
         print("User Input:", city)
 
-      
-        
-        weather = get_weather(city)
+        # Thought
+        print("\n🧠 Thought: I need to find the current weather for the given city.")
 
-       
+        # Action
+        print("⚙️ Action: Calling get_weather tool...")
+
+        # Observation
+        weather = get_weather(city)
+        print(f"👀 Observation: Temperature = {weather['temp']}°C, Condition = {weather['condition']}")
+
+        # Final Answer
         outfit = suggest_outfit(weather["temp"], weather["condition"])
-        
+        print("\n✅ Final Answer:")
         print(f"📍 City: {weather['city']}")
         print(f"🌡️ Temperature: {weather['temp']}°C")
         print(f"🌤️ Condition: {weather['condition']}")
         print(f"👗 Outfit Suggestion: {outfit}")
 
-# ---- Run Multiple Inputs ----
+# ---- Run ----
 agent = WeatherAgent()
-
-city = input(f"\nEnter City : ")
+city = input("\nEnter City: ")
 agent.run(city)
-
-
